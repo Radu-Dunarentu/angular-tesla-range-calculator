@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   template: `
     <form class="tesla-battery" [formGroup]="tesla">
       <h1>{{ title }}</h1>
+      <tesla-car [wheelsize]="tesla.get('config.wheels').value"></tesla-car>
       <div class="tesla-battery__notice">
         <p>
           The actual amount of range that you experience will vary based 
@@ -26,38 +27,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
       </div>
     </form>
   `,
-  styles: [`
-  .tesla-battery {
-  width: 1050px;
-  margin: 0 auto;
-  h1 {
-    font-family: 'RobotoNormal';
-    font-weight: 100;
-    font-size: 38px;
-    text-align: center;
-    letter-spacing: 3px;
-  }
-  &__notice {
-    margin: 20px 0;
-    font-size: 15px;
-    color: #666;
-    line-height: 20px;
-  }
-}
-.tesla-climate {
-  float: left;
-  width: 420px;
-  padding: 0 40px;
-  margin: 0 40px 0 0;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-.tesla-controls {
-  display: block;
-  width: 100%;
-}
-
-`]
+  styleUrls: ['./tesla-battery.component.scss']
 })
 export class TeslaBatteryComponent implements OnInit {
 
