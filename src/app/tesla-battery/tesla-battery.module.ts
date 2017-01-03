@@ -4,11 +4,18 @@
 /*
  * tesla-battery.module.ts
  */
-// containers
-import { TeslaBatteryComponent } from './containers/tesla-battery/tesla-battery.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
+// containers
+import { TeslaBatteryComponent } from './containers/tesla-battery/tesla-battery.component';
+
+// components
+import { TeslaStatsComponent } from './components/tesla-stats/tesla-stats.component';
+import { TeslaCounterComponent } from './components/tesla-counter/tesla-counter.component';
+import { TeslaClimateComponent } from './components/tesla-climate/tesla-climate.component';
+import { TeslaWheelsComponent } from './components/tesla-wheels/tesla-wheels.component';
 
 // services
 import { BatteryService } from './tesla-battery.service';
@@ -16,18 +23,22 @@ import {TeslaCarComponent} from "./components/tesla-car/tesla-car-component";
 
 @NgModule({
   declarations: [
-    // registering our container component
     TeslaBatteryComponent,
-    TeslaCarComponent
+    TeslaCarComponent,
+    TeslaStatsComponent,
+    TeslaCounterComponent,
+    TeslaClimateComponent,
+    TeslaWheelsComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
   providers: [
-    // add the service to our sub-module
     BatteryService
   ],
-  exports: [TeslaBatteryComponent]
+  exports: [
+    TeslaBatteryComponent
+  ]
 })
 export class TeslaBatteryModule {}
